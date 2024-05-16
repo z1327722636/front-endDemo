@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <audio controls src="./assets/music.mp3"></audio>
+    <div class="container">
+      <ul></ul>
+    </div>
+    <script src="./js/data.js"></script>
+    <script>
+      // 解析歌词时间
+      function parseLyric(time) {
+        const parts = time.split(":");
+        return +parts[0] * 60 + +parts[1];
+      }
+      // 解析歌词
+      const lyrics = lrc.split("\n").map((item) => {
+        const ele = item.split("]");
+        // ele[0] = ele[0].substring(1);
+        return { time: parseLyric(ele[0].substring(1)), trlrc: ele[1] };
+      });
+      // console.log(lyrics);
+      const ul = document.querySelector("ul");
+      lyrics.forEach((item) => {
+        const li = document.createElement("li");
+        li.innerText = item.trlrc;
+        ul.appendChild(li);
+      });
+      //获取播放器的时间
+      const audio = document.querySelector("audio");
+      function findIndex() {
+        // 播放器当前时间
+        var curTime = audio.currentTime;
+        // console.log(curTime);
+        for (var i = 0; i < lyrics.length; i++) {
+          if (curTime < lyrics[i].time) {
+            return i - 1;
+          }
+        }
+        // 找遍了都没找到（说明播放到最后一句）
+        return lyrics.length - 1;
+      }
+
+      const container = document.querySelector(".container");
+      const li = document.querySelector("li");
+      containerheight = container.clientHeight;
+      ulheight = ul.clientHeight;
+      liheight = li.clientHeight;
+      // console.log(containerheight, ulheight, liheight);
+      maxOffset = ulheight - containerheight;
+      // console.log(ul.children[-1]);
+      function move() {
+        let index = findIndex();
+        let offset = index * liheight + liheight / 2 - containerheight / 2;
+        if (offset < 0) {
+          offset = 0;
+        }
+        if (offset > maxOffset) {
+          offset = maxOffset;
+        }
+        ul.style.transform = `translateY(-${offset}px)`;
+        const liactive = document.querySelector(".active");
+        if (liactive) {
+          liactive.classList.remove("active");
+        }
+        // liactive = ul.children[index];
+        // if (liactive) {
+        //   liactive.classList.add("active");
+        // }
+        if (index >= 0) {
+          ul.children[index].classList.add("active");
+        }
+      }
+      audio.addEventListener("timeupdate", move);
+      // console.log(findIndex());
+    </script>
+  </body>
+</html>

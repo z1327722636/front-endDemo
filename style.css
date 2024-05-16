@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.w {
+  width: 1200px;
+  margin: auto;
+}
+body {
+  background: pink;
+}
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  height: 42px;
+  margin: 30px auto;
+}
+
+.logo {
+  float: left;
+  width: 198px;
+  height: 42px;
+  /* background-color: lightblue; */
+}
+/* 有行内块的特性宽度就是里面文字多少，不用给宽度 */
+.nav {
+  float: left;
+  margin-left: 60px;
+}
+/* 给li加浮动文字就浮动了 */
+.nav ul li {
+  float: left;
+  margin: 0 10px;
+}
+/* 文字间只用padding给他撑开，只给高度不给宽度 */
+.nav ul li a {
+  display: block;
+  height: 42px;
+  padding: 0 10px;
+  line-height: 42px;
+  color: #050505;
+}
+.nav ul li a:hover {
+  border-bottom: 2px solid #00a4ff;
+  color: #00a4ff;
+}
+.search {
+  float: left;
+  margin-left: 50px;
+}
+.search input {
+  float: left;
+  width: 345px;
+  height: 40px;
+  border: 1px solid #00a4ff;
+  border-right: none;
+  color: #bfbfbf;
+  font-size: 14px;
+  padding-left: 15px;
+}
+
+.search button,
+.search button img {
+  float: left;
+  border: 0;
+  width: 50px;
+  height: 42px;
+}
+
+.user {
+  float: right;
+  line-height: 42px;
+  margin-right: 30px;
+  font-size: 14px;
+  color: #666;
+}
+.user img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.banner {
+  background: #1c036b;
+  height: 420px;
+  width: auto;
+}
+
+.banner .w {
+  height: 420px;
+  background: url(./images/banner2_20190819_210028.png);
+}
+
+.subnav {
+  float: left;
+  height: 420px;
+  width: 190px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.subnav ul li {
+  height: 46.6px;
+  line-height: 46.6px;
+  padding: 0 20px;
+}
+
+.subnav ul li a {
+  font-size: 14px;
+  color: white;
+}
+
+.subnav ul li a span {
+  float: right;
+}
+.subnav ul li a:hover {
+  color: #00a4ff;
+}
+
+.course {
+  float: right;
+  width: 230px;
+  height: 300px;
+  background: white;
+  margin-top: 50px;
+}
+
+.course h2 {
+  height: 48px;
+  background: #96c889;
+  font-size: 20px;
+  text-align: center;
+  line-height: 48px;
+  color: white;
+}
+
+.bd {
+  margin: 10px 15px;
+}
+
+.bd ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  /* line-height: 60px; */
+}
+.bd ul li h4 {
+  font-size: 16px;
+  color: #4e4e4e;
+}
+.bd ul li p {
+  font-size: 14px;
+  color: #a5a5a5;
+}
+.bd ul li:hover h4 {
+  color: #00a4ff;
+}
+
+.bd ul li:hover p {
+  color: #00a4ff;
+}
+
+.more {
+  display: block;
+  height: 38px;
+  margin-top: 5px;
+  text-align: center;
+  line-height: 38px;
+  border: #00a4ff 1.5px solid;
+  color: #00a4ff;
+  font-weight: 700;
+}

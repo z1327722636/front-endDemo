@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>axios 使用</title>
+  </head>
+  <body>
+    <!-- <p></p> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      axios({
+        url: "https://hmajax.itheima.net/api/province",
+        params: {
+          pname: "湖北省",
+        },
+      }).then((result) => {
+        console.log(result);
+        console.log(result.data.list);
+        // console.log(result.data.list.join(`<br>`));
+        // document.write(result.data.list.join(`<br>`));
+        // 创建一个 <p> 元素
+        var paragraphElement = document.createElement("p");
+
+        // 设置 <p> 元素的内容
+        paragraphElement.innerHTML = result.data.list.join(`<br>`);
+
+        // 添加 <p> 元素到文档中的 body 元素中
+        document.body.appendChild(paragraphElement);
+      });
+    </script>
+  </body>
+</html>
