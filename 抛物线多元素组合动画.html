@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="padding"><inner class="inner"></inner></div>
+  </body>
+  <style>
+    .padding {
+      margin: 100px;
+      width: 50px;
+      height: 50px;
+      /* background-color: #000; */
+      border-radius: 50%;
+      /* border: #000000 4px dashed; */
+      /* position: relative; */
+      animation: moveX 2s linear forwards;
+    }
+    .inner {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #0f0;
+      animation: moveY 2s cubic-bezier(0.47, -0.66, 0.82, 0.45) forwards;
+    }
+    @keyframes moveX {
+      to {
+        transform: translateX(200px);
+      }
+    }
+    @keyframes moveY {
+      to {
+        transform: translateY(400px);
+      }
+    }
+  </style>
+</html>
